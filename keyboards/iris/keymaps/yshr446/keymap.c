@@ -40,8 +40,11 @@ enum custom_keycodes {
 #define KC_CMV LGUI(KC_V)
 
 // Modifier
-#define KC_CMBS MT(MOD_LGUI, KC_BSPC) // Tap BKSP, Hold L GUI
-#define KC_CMEN MT(MOD_RGUI, KC_ENT) // Tap ENTER, Hold R GUI
+#define KC_CMBS MT(MOD_LGUI, KC_BSPC) // Hold L GUI, Tap BKSP
+#define KC_CMEN MT(MOD_RGUI, KC_ENT) // Hold R GUI, Tap ENTER
+
+#define KC_RSSP LT(_RAISE, KC_SPC) // Hold RASE, Tap SPC
+#define KC_LWSP LT(_LOWER, KC_SPC) // Hold LOWR, Tap SPC
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -53,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,LOWR,     RASE, N  , M  ,COMM,DOT ,SLSH, EQL,
+     LSFT, Z  , X  , C  , V  , B  ,SPC ,     SPC , N  , M  ,COMM,DOT ,SLSH, EQL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,CMBS,SPC ,         SPC ,CMEN,RALT
+                       LALT,CMBS,LWSP,         RSSP,CMEN,RALT
   //                  `----+----+----'        `----+----+----'
   ),
 
