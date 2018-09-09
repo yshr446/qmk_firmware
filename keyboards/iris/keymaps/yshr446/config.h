@@ -15,20 +15,55 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+// ========================================
+
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
+// ========================================
+
 #include "config_common.h"
+
+// ========================================
 
 #define USE_SERIAL
 
+// ========================================
+
 #define MASTER_LEFT
 
+// ========================================
+
+#define TAPPING_TERM 100
+#define TAPPING_TOGGLE 2
+
+// ========================================
+
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_INTERVAL 20
+#define MOUSEKEY_MAX_SPEED 7
+#define MOUSEKEY_TIME_TO_MAX 60
+
+#define MOUSEKEY_WHEEL_DELAY 0
+#define MOUSEKEY_WHEEL_MAX_SPEED 8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 40
+
+// ========================================
+
+// #define PERMISSIVE_HOLD
+
+// ========================================
+
+// #define RETRO_TAPPING
+
+// ========================================
+
 #undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 12
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
+
+// ========================================
+
+// #define PREVENT_STUCK_MODIFIERS
+
+// ========================================
 
 #endif
