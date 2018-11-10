@@ -7,14 +7,12 @@ extern keymap_config_t keymap_config;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-#define _NUMPAD 4
 #define _ADJUST 16
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  NUMPAD,
   ADJUST,
 };
 
@@ -39,10 +37,7 @@ enum custom_keycodes {
 #define KC_LWBS LT(_LOWER, KC_BSPC)
 #define KC_RSEN LT(_RAISE, KC_ENT)
 
-#define KC_LGSP MT(MOD_LGUI, KC_SPC)
 #define KC_RGSP MT(MOD_RGUI, KC_SPC)
-
-#define KC_NPD TT(_NUMPAD) // Double Tap for Numpad
 
 // Common Shortcuts
 #define KC_CMZ LGUI(KC_Z)
@@ -58,17 +53,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,PIPE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LCTL, Z  , X  , C  , V  , B  ,SPC ,     SPC , N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LSFT, Z  , X  , C  , V  , B  ,HOME,     END , N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LWBS,LGSP,        RGSP,RSEN,NPD
+                       LALT,LWBS,LGUI,         RGSP,RSEN,RALT
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GRV ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,MINS,    ,
+     GRV ,    ,    ,    ,    ,    ,                   ,    ,    ,LPRN,RPRN,MINS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,    ,    ,LBRC,RBRC,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
@@ -91,20 +86,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,
-  //                  `----+----+----'        `----+----+----'
-  ),
-
-  [_NUMPAD] = LAYOUT_kc(
-  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-         , NO , NO , NO , NO , NO ,                   ,    ,    ,    ,    ,    ,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         , NO , UP , NO ,LPRN,RPRN,                   , P7 , P8 , P9 ,    ,    ,
-  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LEFT,DOWN,RGHT,LBRC,RBRC,                   , P4 , P5 , P6 ,    ,    ,
-  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,CMZ ,CMX ,CMC ,CMV , NO ,    ,         ,    , P1 , P2 , P3 ,    ,    ,
-  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,             , P0 ,NPD
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -154,12 +135,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         layer_off(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
-      }
-      return false;
-      break;
-    case NUMPAD:
-      if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_NUMPAD);
       }
       return false;
       break;
