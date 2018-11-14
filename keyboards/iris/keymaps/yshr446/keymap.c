@@ -38,6 +38,7 @@ enum custom_keycodes {
 #define KC_RSEN LT(_RAISE, KC_ENT)
 
 #define KC_RGSP MT(MOD_RGUI, KC_SPC)
+#define KC_LGSP MT(MOD_LGUI, KC_SPC)
 
 // Common Shortcuts
 #define KC_CMZ LGUI(KC_Z)
@@ -57,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSFT, Z  , X  , C  , V  , B  ,HOME,     END , N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LWBS,LGUI,         RGSP,RSEN,RALT
+                       LALT,LWBS,LGSP,         RGSP,RSEN,RALT
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -79,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
          , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    , UP ,    ,    ,    ,                   ,    ,    ,    ,    ,F12 ,
+         ,    , UP ,    ,    ,    ,                   ,WH_U,BTN1,MS_U,BTN2,F12 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,LEFT,DOWN,RGHT,    ,    ,                   ,    ,    ,    ,    ,    ,
+         ,LEFT,DOWN,RGHT,    ,    ,                   ,WH_D,MS_L,MS_D,MS_R,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,    ,    ,    ,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
