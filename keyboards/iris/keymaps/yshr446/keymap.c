@@ -37,9 +37,6 @@ enum custom_keycodes {
 #define KC_LWBS LT(_LOWER, KC_BSPC)
 #define KC_RSEN LT(_RAISE, KC_ENT)
 
-#define KC_RGSP MT(MOD_RGUI, KC_SPC)
-#define KC_LGSP MT(MOD_LGUI, KC_SPC)
-
 // Common Shortcuts
 #define KC_CMZ LGUI(KC_Z)
 #define KC_CMX LGUI(KC_X)
@@ -56,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      LSFT, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LCTL, Z  , X  , C  , V  , B  ,HOME,     END , N  , M  ,COMM,DOT ,SLSH,RSFT,
+     LCTL, Z  , X  , C  , V  , B  ,SPC ,     SPC , N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LALT,LWBS,LGSP,         RGSP,RSEN,RALT
+                       LALT,LWBS,LGUI,         RGUI,RSEN,RALT
   //                  `----+----+----'        `----+----+----'
   ),
 
