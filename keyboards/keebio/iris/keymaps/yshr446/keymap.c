@@ -7,7 +7,7 @@ extern keymap_config_t keymap_config;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-#define _ADJUST 16
+#define _ADJUST 3
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -61,15 +61,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GRV ,    ,    ,    ,    ,    ,                   , NO ,LPRN,RPRN, NO ,PIPE,
+     GRV ,    ,    ,    ,    ,    ,                   ,    ,    ,   , NO ,PIPE,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   , NO ,LCBR,RCBR, NO ,BSLS,
+         ,    ,    ,    ,    ,    ,                   , P7 , P8 , P9 ,    ,BSLS,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,                   , NO ,LBRC,RBRC, NO ,    ,
+         ,    ,    ,    ,    ,LBRC,               RBRC, P4 , P5 , P6 ,    ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,CMZ ,CMX ,CMC ,CMV ,    ,    ,         ,    , NO ,LABK,RABK, NO ,    ,
+         ,     ,    ,    ,    ,LCBR,LPRN,    RPRN,RCBR, P1 , P2 , P3 ,    ,    ,
   //`---- +----+----+--+-+----+----+----/   \----+----+----+----+----+----+----'
-                           ,    ,    ,             ,    ,
+                           ,    ,    ,             ,    , P0
   //                  `----+----+----'        `----+----+----'
   ),
 
